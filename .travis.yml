@@ -1,0 +1,48 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+# and this guide: https://towardsdatascience.com/travis-ci-for-r-advanced-guide-719cb2d9e0e5
+
+env:
+    - PKG_TARBALL=shapley_0.1.0.tar.gz
+
+language: r
+
+r:
+  - oldrel
+  - release
+  - devel
+  
+matrix:
+  include:
+  - r: release
+    script:
+      - R CMD build . --compact-vignettes=gs+qpdf
+      - R CMD check *tar.gz --as-cran 
+  - r: release
+    os: osx
+    osx_image: xcode7.3
+    before_install:
+      - sudo tlmgr install framed titling
+    script:
+      - R CMD build . --compact-vignettes=gs+qpdf
+      - R CMD check *tar.gz --as-cran
+
+script:
+  - R CMD build . --compact-vignettes=gs+qpdf
+  - R CMD check *tar.gz --as-cran
+
+# For building vignettes
+addons:
+apt:
+  update: true
+  packages:
+    - libgs-dev
+    - qpdf
+    - ghostscript
+
+# For code coverage
+r_github_packages:
+  - r-lib/covr
+  
+after_success:
+      - tar -C .. -xf $PKG_TARBALL
+      - xvfb-run Rscript -e 'covr::codecov(type=c("tests", "vignettes", "examples"))'
