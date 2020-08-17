@@ -8,10 +8,6 @@ language: r
   
 matrix:
   include:
-  - r: oldrel
-    script:
-      - R CMD build .
-      - R CMD check *tar.gz --as-cran 
   - r: release
     script:
       - R CMD build .
