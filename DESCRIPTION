@@ -13,7 +13,9 @@ Description: Shapley value utilities that are optimised, generalised
     from any characteristic function, potential function, Harsanyi 
     dividends or marginal contributions.
 Depends: R (>= 4.0.0)
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat

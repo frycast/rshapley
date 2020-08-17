@@ -15,29 +15,18 @@ matrix:
   include:
   - r: release
     script:
-      - R CMD build . --compact-vignettes=gs+qpdf
+      - R CMD build .
       - R CMD check *tar.gz --as-cran 
   - r: release
     os: osx
     osx_image: xcode7.3
-    before_install:
-      - sudo tlmgr install framed titling
     script:
-      - R CMD build . --compact-vignettes=gs+qpdf
+      - R CMD build .
       - R CMD check *tar.gz --as-cran
 
 script:
-  - R CMD build . --compact-vignettes=gs+qpdf
+  - R CMD build .
   - R CMD check *tar.gz --as-cran
-
-# For building vignettes
-addons:
-apt:
-  update: true
-  packages:
-    - libgs-dev
-    - qpdf
-    - ghostscript
 
 # For code coverage
 r_github_packages:
