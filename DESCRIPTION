@@ -1,0 +1,18 @@
+Package: shapley
+Type: Package
+BugReports: https://github.com/Frycast/shapley/issues
+Title: Shapley value utilities that are optimised, generalised and modular
+Version: 0.1.0
+Authors@R: c(person("Daniel", "Fryer", 
+                     role = c("aut", "cre"), 
+                     email = "daniel@vfryer.com",
+                     comment = c(ORCID = "0000-0001-6032-0522")))
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Shapley value utilities that are optimised, generalised 
+    and modular. Calculate or approximate weighted Shapley values 
+    from any characteristic function, potential function, Harsanyi 
+    dividends or marginal contributions.
+Depends: R (>= 3.6.3)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
