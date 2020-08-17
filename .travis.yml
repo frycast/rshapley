@@ -5,15 +5,18 @@ env:
     - PKG_TARBALL=shapley_0.1.0.tar.gz
 
 language: r
-
-r:
-  - oldrel
-  - release
-  - devel
   
 matrix:
   include:
+  - r: oldrel
+    script:
+      - R CMD build .
+      - R CMD check *tar.gz --as-cran 
   - r: release
+    script:
+      - R CMD build .
+      - R CMD check *tar.gz --as-cran 
+  - r: devel
     script:
       - R CMD build .
       - R CMD check *tar.gz --as-cran 
@@ -25,10 +28,6 @@ matrix:
       - brew reinstall cask
       - R CMD build .
       - R CMD check *tar.gz --as-cran
-
-script:
-  - R CMD build .
-  - R CMD check *tar.gz --as-cran
 
 # For code coverage
 r_github_packages:
