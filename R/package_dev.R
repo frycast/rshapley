@@ -17,9 +17,12 @@
 #' A function for printing Hello World
 #'
 #' @return NULL
+#' 
+#' @export
 hello <- function() {
   print("Hello, world!")
 }
+
 
 
 
