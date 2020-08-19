@@ -8,5 +8,9 @@
 [![devel Version](https://img.shields.io/badge/devel-0.1.0-brightgreen.svg)](https://github.com/frycast/shapley)
 <!-- badges: end -->
 
+
+### Under development - this is only a skeleton - package coming soon.
+
 # shapley R package
 Shapley value utilities that are optimised, generalised and modular
+
