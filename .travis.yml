@@ -16,11 +16,6 @@ matrix:
     script:
       - R CMD build .
       - R CMD check *tar.gz --as-cran 
-  - r: release
-    os: osx
-    script:
-      - R CMD build .
-      - R CMD check *tar.gz --as-cran
 
 # For code coverage
 r_github_packages:
